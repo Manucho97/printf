@@ -4,13 +4,14 @@
 /**
  * _printf - produces output according to a format.
  * @format: 
- * @...: unknown number of arguments
+ * @...: 
+ * unknown number of arguments
  * Return: (number of characters included excluding null charaters to end strings)
  */
 
 
 
-int _printf(const char *format, ...);
+int _printf(const char *format, ...)
 {
 	va_list ptr;
 	int return_value;
@@ -26,7 +27,7 @@ int _printf(const char *format, ...);
 		}
 		else
 		{
-			return_value += write(1,format 1);
+			return_value += write(1,format, 1);
 		}
 		++format;
 	}
