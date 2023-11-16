@@ -1,36 +1,58 @@
 #include "main.h"
 
-
 /**
- * _printf - produces output according to a format.
+ * _printf - fxn that produces output according to fxn
  * @format: 
- * @...: 
- * unknown number of arguments
- * Return: (number of characters included excluding null charaters to end strings)
- */
-
+ * Return: printed characters.
+*/
 
 
 int _printf(const char *format, ...)
 {
-	va_list ptr;
-	int return_value;
+    va_list ptr;
+    int return_value = 0;
 
+    if( *format == NULL)
+    {
+        return (-1);
+    }
 
-	va_start(ptr,format);
-	return_value = 0;
-	while(*format != '\0')
-	{
-		if(format == '%')
-		{
-			return_value += output_frmt(*(++format),ptr);
-		}
-		else
-		{
-			return_value += write(1,format, 1);
-		}
-		++format;
-	}
-	va_end(ptr);
-	return return_value;
+    va_start(ptr, format);
+
+    while(*format != '\0')
+    {
+        if(*format != '%')
+        {
+            write(1,format, 1);
+            return_value += 1;
+        
+        }
+        else
+        {
+            format++;
+            if (*format == 'c')
+            {
+                char c = va_arg(ptr, int);
+                write(1, &c, 1);
+                return_value += 1;
+                }
+                else if(*format == 's')
+                {
+                    char *str = va_arg(ptr, char *);
+                    int len1 = 0;
+                    
+                    while(str[len1]!= '\0')
+                    {
+                        len1 += 1;
+                    }
+                    write(1, str, len1);
+                    return_value = len1;
+                }
+        }
+        format++;
+
+    }
+    va_end(ptr);
+    return(return_value);
+
 }
