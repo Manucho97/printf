@@ -46,7 +46,7 @@ int _printf(const char *format, ...)
                 {
                     char *str = va_arg(ptr, char *);
                     int len1 = 0;
-                    
+
                     while(str[len1]!= '\0')
                     {
                         len1 += 1;
