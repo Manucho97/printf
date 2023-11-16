@@ -1,3 +1,6 @@
+#ifndef  MAIN_PRINTF_H
+#define MAIN_PRINTF_H
+
 #include <stdarg.h>
 #include <unistd.h>
 #include <stdio.h>
@@ -9,4 +12,4 @@ int print_char(char c);
 int print_str(char *str);
 
 
-
+#endif /*MAIN_PRINTF_H*/
