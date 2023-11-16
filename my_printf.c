@@ -12,7 +12,7 @@ int _printf(const char *format, ...)
     va_list ptr;
     int return_value = 0;
 
-    if( *format == NULL)
+    if(format == NULL)
     {
         return (-1);
     }
