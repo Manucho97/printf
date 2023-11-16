@@ -1,4 +1,4 @@
-#include <main.h>
+#include "main.h"
 
 /**
  * output_frmt - produces output according to a format
