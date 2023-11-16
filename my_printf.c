@@ -2,7 +2,7 @@
 
 /**
  * _printf - fxn that produces output according to fxn
- * @format: 
+ * @format: format
  * Return: printed characters.
 */
 
@@ -30,7 +30,13 @@ int _printf(const char *format, ...)
         else
         {
             format++;
-            if (*format == 'c')
+            if(*format == '%')
+            {
+                write(1, format, 1);
+                return_value += 1;
+            }
+
+            else if (*format == 'c')
             {
                 char c = va_arg(ptr, int);
                 write(1, &c, 1);
